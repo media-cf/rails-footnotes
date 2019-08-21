@@ -87,7 +87,9 @@ module Footnotes
 
     protected
       def valid?
-        @body.is_a?(String) && performed_render? && valid_format? && valid_content_type? &&
+        # @body.is_a?(String) && performed_render? && valid_format? && valid_content_type? &&
+          # !component_request? && !xhr? && !footnotes_disabled? && !attached_file?
+        @body.is_a?(String) && performed_render? &&
           !component_request? && !xhr? && !footnotes_disabled? && !attached_file?
       end
 
