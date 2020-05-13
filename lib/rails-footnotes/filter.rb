@@ -47,7 +47,7 @@ module Footnotes
         if args.empty?
           @@prefix
         else
-          args.map! { |arg| URI.escape(arg.to_s) }
+          args.map! { |arg| URI.encode_www_form_component(arg.to_s, enc=nil) }
 
           if @@prefix.respond_to? :call
             @@prefix.call *args
